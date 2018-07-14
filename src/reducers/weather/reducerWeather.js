@@ -10,8 +10,8 @@ const weather = (state = initialState, action) => {
             return{
                 ...state,
                 weather:[
-                    ...state.weather,
                     action.payload.data,
+                    ...state.weather,
                 ]
             };
         default:

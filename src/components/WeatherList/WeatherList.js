@@ -1,11 +1,44 @@
 import React from 'react';
+import WeatherListChart from '../WeatherListChart/WeatherList';
+import GoogleMap from '../GoogleMap/GoogleMap';
 
 const WeatherList = ({weather}) =>{
     const renderWeather = (cityData) =>{
         const name = cityData.city.name;
+        const temps = cityData.list.map(weather => weather.main.temp - 273);
+        const pressures = cityData.list.map(weather => weather.main.pressure);
+        const humidities = cityData.list.map(weather => weather.main.humidity);
+        const {lat, lon} = cityData.city.coord;
+
         return (
             <tr key={name}>
-                <td>{name}</td>
+                <td>
+                    <GoogleMap
+                        lat={lat}
+                        lon={lon}
+                    />
+                </td>
+                <td>
+                    <WeatherListChart
+                        data={temps}
+                        color="red"
+                        units="C"
+                    />
+                </td>
+                <td>
+                    <WeatherListChart
+                        data={pressures}
+                        color="blue"
+                        units="hPa"
+                    />
+                </td>
+                <td>
+                    <WeatherListChart
+                        data={humidities}
+                        color="black"
+                        units="%"
+                    />
+                </td>
             </tr>
         )
     };
@@ -16,9 +49,9 @@ const WeatherList = ({weather}) =>{
             <thead>
                 <tr>
                     <th>City</th>
-                    <th>Temperature</th>
-                    <th>Pressure</th>
-                    <th>Humidity</th>
+                    <th>Temperature (C)</th>
+                    <th>Pressure(hPa)</th>
+                    <th>Humidity(%)</th>
                 </tr>
             </thead>
             <tbody>
