@@ -9,11 +9,11 @@ const WeatherListChart = ({data, color, units}) =>{
     };
     return (
         <div>
-            <Sparklines height={120} width={180} data={data}>
-                <SparklinesLine color={color} />
+            <Sparklines height={ 120 } width={ 180 } data={ data }>
+                <SparklinesLine color={ color } />
                 <SparklinesReferenceLine type='avg'/>
             </Sparklines>
-            <div>{average(data)} {units}</div>
+            <div>{average(data)} { units }</div>
         </div>
     )
 };
