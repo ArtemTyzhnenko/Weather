@@ -4,7 +4,8 @@ td ,th {
 }
 
 .input-group{
-    margin: 20px 0;
+    margin: 20px 0 30px 0;
+    position: relative;
 }
 
 svg{
@@ -13,4 +14,14 @@ svg{
 td:first-of-type, td:first-of-type > div{
     height: 200px;
     width: 250px;
+}
+
+.help-block {
+    color: #a94442;
+    position: absolute;
+    width: 100%;
+    top: 34px;
+    line-height: 34px;
+    left: 20px;
+
 }

@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = ({weather}) =>{
     return{
-        weather: weather.weather,
+        weather: weather.data,
+        didInvalidate: weather.didInvalidate
     };
 };
 

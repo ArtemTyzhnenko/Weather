@@ -3,15 +3,16 @@ import SearchBar from '../SearchBar/SearchBar';
 import WeatherList from '../WeatherList/WeatherList'
 
 
-const Weather = ({actions : { fetchWeather }, weather}) => {
-
+const Weather = ({actions : { fetchWeather }, weather, didInvalidate}) => {
+    console.log(weather, 'weather');
     return(
         <div>
             <SearchBar
-                fetchWeather={ fetchWeather }
+                fetchWeather = { fetchWeather }
+                didInvalidate = {didInvalidate}
             />
             <WeatherList
-                weather={ weather }
+                weather = { weather }
             />
         </div>
     )

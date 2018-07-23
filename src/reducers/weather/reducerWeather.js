@@ -1,18 +1,25 @@
 import * as actionTypes from './actionTypes'
 
 let initialState = {
-  weather: []
+    data: [],
+    didInvalidate : false,
 };
 
 const weather = (state = initialState, action) => {
-    switch (action.type){
+    switch (action.type) {
         case actionTypes.FETCH_WEATHER:
-            return{
+            return {
                 ...state,
-                weather:[
+                data: [
                     action.payload.data,
-                    ...state.weather,
-                ]
+                    ...state.data,
+                ],
+                didInvalidate : false,
+            };
+        case actionTypes.FETCH_WEATHER_FAIL:
+            return {
+                ...state,
+                didInvalidate : true,
             };
         default:
             return state;
